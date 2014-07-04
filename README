@@ -1,0 +1,3 @@
+This generates choropleth maps from JSONs. To use, download and require jsontochoropleth and then-
+c = JSONToChoropleth.new(json to turn into map, "field name for country code", "field name for number to use in map")
+c.genfill
