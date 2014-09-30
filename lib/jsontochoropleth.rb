@@ -7,7 +7,7 @@ class JSONToChoropleth
     @number = number
   end
 
-  def genfill
+  def genfill(type)
     countryhash = Hash.new
 
     rangehash = Hash.new
@@ -18,11 +18,19 @@ class JSONToChoropleth
 
     average = fullcount.to_f/@input.length.to_f
 
-    rangehash["#FFFF99"] = average/3
-    rangehash["#FFFF00"] = average/2
-    rangehash["#FFA800"] = average
-    rangehash["#FF6800"] = average/0.5
-    rangehash["#FF0000"] = average/0.25
+    if type == "percent"
+      rangehash["#FFFF99"] = average/3
+      rangehash["#FFFF00"] = average/2
+      rangehash["#FFA800"] = average
+      rangehash["#FF6800"] = average/0.5
+      rangehash["#FF0000"] = average/0.25
+    elsif type == "full"
+      rangehash["#FFFF99"] = average.to_f/3.0
+      rangehash["#FFFF00"] = average.to_f/2.0
+      rangehash["#FFA800"] = average
+      rangehash["#FF6800"] = average*2
+      rangehash["#FF0000"] = average*4
+    end
 
     @input.each do |t|
       numusers = t[@number]

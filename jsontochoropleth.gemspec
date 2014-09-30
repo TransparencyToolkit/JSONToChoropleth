@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'jsontochoropleth'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.date        = '2014-07-04'
   s.summary     = "Converts JSONs to choropleth maps"
   s.description = "Converts as JSON to a world choropleth map."
